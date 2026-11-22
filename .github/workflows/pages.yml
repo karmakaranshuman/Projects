@@ -33,13 +33,12 @@ jobs:
         working-directory: .
         run: |
           mkdir -p _site/nextiva
-          cp -R "Nextiva/Chatbot Builder/dist" _site/nextiva/chatbot-builder
+          cp -R "Nextiva/Chatbot Builder/dist" _site/nextiva/chatbotbuilder
           cat > _site/index.html <<'HTML'
           <!doctype html>
           <meta charset="utf-8" />
-          <meta http-equiv="refresh" content="0; url=nextiva/chatbot-builder/" />
-          <title>Projects</title>
-          <a href="nextiva/chatbot-builder/">Nextiva · Chatbot Builder</a>
+          <title>projects/nextiva/chatbotbuilder</title>
+          <p><a href="nextiva/chatbotbuilder/">projects/nextiva/chatbotbuilder</a></p>
           HTML
       - uses: actions/upload-pages-artifact@v3
 
