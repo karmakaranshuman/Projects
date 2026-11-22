@@ -1,0 +1,812 @@
+/* ───────────────────────── Button ───────────────────────── */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-default);
+  background: transparent;
+  font-weight: var(--font-weight-heavy);
+  font-size: var(--font-size-button);
+  line-height: 16px;
+  letter-spacing: 0.25px;
+  white-space: nowrap;
+  transition:
+    background var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+.ds-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.ds-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.ds-btn--md {
+  height: var(--height-md);
+  padding: 0 var(--space-4);
+}
+.ds-btn--sm {
+  height: var(--height-sm);
+  padding: 0 var(--space-2);
+  font-size: var(--font-size-button-small);
+  letter-spacing: 0.15px;
+}
+.ds-btn--primary {
+  background: var(--surface-action-primary);
+  color: var(--icon-on-action-primary);
+}
+.ds-btn--primary:hover:not(:disabled) {
+  background: var(--surface-action-primary-hover);
+}
+.ds-btn--primary:disabled {
+  opacity: 1;
+  background: var(--surface-action-primary-disabled);
+}
+.ds-btn--neutral {
+  min-width: 80px;
+  background: var(--surface-action-secondary-default);
+  color: var(--text-body-primary);
+}
+.ds-btn--neutral:hover:not(:disabled) {
+  background: var(--secondary-grey);
+}
+.ds-btn--danger {
+  min-width: 80px;
+  background: var(--icon-error);
+  color: var(--icon-on-action-primary);
+}
+.ds-btn--danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--icon-error) 88%, #000);
+}
+.ds-btn--outline {
+  background: var(--surface-primary);
+  border-color: var(--border-on-action);
+  color: var(--text-action-primary);
+}
+.ds-btn--outline:hover:not(:disabled) {
+  background: var(--label-default-bg);
+}
+.ds-btn--secondary {
+  background: var(--surface-primary);
+  border-color: var(--border-primary);
+  color: var(--text-action-secondary);
+}
+.ds-btn--secondary:hover:not(:disabled) {
+  border-color: var(--border-input);
+  background: var(--surface-secondary);
+}
+.ds-btn--ghost {
+  color: var(--text-action-primary);
+}
+.ds-btn--ghost:hover:not(:disabled) {
+  background: var(--surface-action-ghost-hover);
+}
+.ds-btn--ghost-secondary {
+  color: var(--text-action-secondary);
+}
+.ds-btn--ghost-secondary:hover:not(:disabled) {
+  background: var(--surface-action-ghost-hover-secondary);
+}
+.ds-btn--muted {
+  color: var(--text-action-secondary-disabled);
+}
+.ds-btn--muted:hover:not(:disabled) {
+  color: var(--text-body-secondary);
+}
+.ds-btn--link,
+.ds-btn--link-danger {
+  height: auto;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-button-small);
+  letter-spacing: 0.15px;
+  color: var(--text-action-primary);
+}
+.ds-btn--link-danger {
+  color: var(--text-error);
+}
+.ds-btn--link:hover:not(:disabled) {
+  background: var(--surface-action-ghost-hover);
+}
+.ds-btn--link-danger:hover:not(:disabled) {
+  background: var(--surface-action-ghost-hover-secondary);
+}
+.ds-btn--ghost:active:not(:disabled),
+.ds-btn--ghost-secondary:active:not(:disabled),
+.ds-btn--link:active:not(:disabled),
+.ds-btn--link-danger:active:not(:disabled) {
+  background: var(--surface-action-ghost-pressed);
+}
+
+/* ───────────────────────── IconButton ───────────────────────── */
+.ds-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-default);
+  background: transparent;
+  color: var(--icon-primary);
+  transition:
+    background var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+.ds-icon-btn:hover:not(:disabled) {
+  background: var(--surface-action-secondary-hover);
+  color: var(--icon-on-action-secondary);
+}
+.ds-icon-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.ds-icon-btn:disabled {
+  cursor: not-allowed;
+  color: var(--icon-disabled);
+}
+.ds-icon-btn--bordered {
+  background: var(--surface-primary);
+  border-color: var(--border-primary);
+}
+.ds-icon-btn--active,
+.ds-icon-btn--active:hover:not(:disabled) {
+  background: var(--surface-action-primary);
+  color: var(--icon-on-action-primary);
+}
+.ds-icon-btn--filled {
+  background: var(--surface-action-primary);
+  color: var(--icon-on-action-primary);
+  border-radius: var(--radius-medium);
+}
+.ds-icon-btn--filled:hover:not(:disabled) {
+  background: var(--surface-action-primary-hover);
+  color: var(--icon-on-action-primary);
+}
+.ds-icon-btn--danger {
+  color: var(--icon-warning);
+}
+.ds-icon-btn--danger:hover:not(:disabled) {
+  background: var(--label-red-bg);
+  color: var(--icon-warning);
+}
+
+/* ───────────────────────── Fields ───────────────────────── */
+.ds-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.ds-field__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.ds-field__required {
+  color: var(--text-body-primary);
+}
+.ds-field__help {
+  display: inline-flex;
+  color: var(--icon-primary);
+}
+.ds-input {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: var(--height-md);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-default);
+  background: var(--surface-field);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+.ds-input:hover {
+  border-color: var(--text-body-secondary);
+}
+.ds-input:focus-within {
+  border-color: var(--border-on-action);
+  box-shadow: var(--focus-ring);
+}
+.ds-input--sm {
+  height: var(--height-sm);
+  padding: 0 var(--space-2);
+}
+.ds-input--borderless,
+.ds-input--borderless:hover {
+  border-color: transparent;
+}
+.ds-input__control {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  font-size: var(--font-size-body2);
+}
+.ds-input--sm .ds-input__control {
+  font-size: var(--font-size-caption1);
+}
+.ds-input__control::placeholder {
+  color: var(--text-placeholder);
+}
+.ds-input__icon {
+  display: inline-flex;
+  color: var(--icon-primary);
+  flex-shrink: 0;
+}
+.ds-input__clear {
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-body-secondary);
+}
+.ds-textarea {
+  height: auto;
+  align-items: stretch;
+  padding: var(--space-2) var(--space-3);
+}
+.ds-textarea .ds-input__control {
+  resize: none;
+  line-height: 20px;
+  min-height: 60px;
+}
+
+/* ───────────────────────── Select ───────────────────────── */
+.ds-select {
+  position: relative;
+}
+.ds-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  height: var(--height-md);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-default);
+  background: var(--surface-field);
+  font-size: var(--font-size-body2);
+  text-align: left;
+  color: var(--text-body-primary);
+}
+.ds-select__trigger:focus-visible,
+.ds-select__trigger[aria-expanded='true'] {
+  outline: none;
+  border-color: var(--border-on-action);
+  box-shadow: var(--focus-ring);
+}
+.ds-select__trigger:disabled {
+  color: var(--text-placeholder);
+  cursor: default;
+}
+.ds-select__value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ds-select__value.is-placeholder {
+  color: var(--text-placeholder);
+}
+.ds-select__chevron {
+  flex-shrink: 0;
+  color: var(--text-body-secondary);
+}
+.ds-select__menu {
+  position: fixed;
+  z-index: 30;
+  max-height: 240px;
+  overflow: auto;
+}
+.ds-field:has(.ds-select__menu) {
+  z-index: 2;
+}
+
+/* ───────────────────────── Toggle (.AI Toggle) ───────────────────────── */
+.ds-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 22px;
+  padding: 2px;
+  border: 0;
+  border-radius: var(--radius-round);
+  background: var(--surface-grip);
+  box-shadow: inset 0 0 4px rgba(84, 104, 127, 0.18);
+  transition: background var(--duration-base) var(--ease-standard);
+}
+.ds-toggle::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border-radius: 16px;
+  background: var(--surface-primary);
+  box-shadow:
+    1px 1px 2px rgba(84, 104, 127, 0.16),
+    -1px -0.4px 1px rgba(84, 104, 127, 0.12);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.ds-toggle[aria-checked='true'] {
+  background: var(--surface-action-primary);
+}
+.ds-toggle[aria-checked='true']::after {
+  transform: translateX(26px);
+}
+.ds-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* ───────────────────────── Badge (Label) ───────────────────────── */
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-default);
+  font-size: var(--font-size-caption1);
+  line-height: 16px;
+  letter-spacing: 0.15px;
+  white-space: nowrap;
+}
+.ds-badge--default {
+  background: var(--label-default-bg);
+  color: var(--label-default-text);
+}
+.ds-badge--light-blue {
+  background: var(--label-light-blue-bg);
+  color: var(--label-light-blue-text);
+}
+.ds-badge--purple {
+  background: var(--label-purple-bg);
+  color: var(--label-purple-text);
+}
+.ds-badge--green {
+  background: var(--label-light-green-bg);
+  color: var(--label-light-green-text);
+}
+.ds-badge--grey {
+  background: var(--label-grey-bg);
+  color: var(--text-body-secondary);
+}
+:root[data-theme='dark'] .ds-badge--default {
+  background: var(--label-default-text);
+  color: var(--label-default-bg);
+}
+:root[data-theme='dark'] .ds-badge--light-blue {
+  background: var(--label-light-blue-text);
+  color: var(--label-light-blue-bg);
+}
+:root[data-theme='dark'] .ds-badge--purple {
+  background: var(--label-purple-text);
+  color: var(--label-purple-bg);
+}
+:root[data-theme='dark'] .ds-badge--green {
+  background: var(--label-light-green-text);
+  color: var(--label-light-green-bg);
+}
+
+/* ───────────────────────── Tooltip ───────────────────────── */
+.ds-tooltip {
+  display: inline-flex;
+}
+.ds-tooltip__bubble {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1100;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-default);
+  background: var(--surface-pop-up);
+  color: var(--surface-primary);
+  font-size: var(--font-size-caption1);
+  line-height: 16px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.15px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+}
+.ds-tooltip__bubble[data-ready='true'] {
+  opacity: 1;
+  animation: ds-tooltip-in var(--duration-fast) var(--ease-standard);
+}
+@keyframes ds-tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+}
+
+/* ───────────────────────── Element icon (.chatboticon) ───────────────────────── */
+.ds-el-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-default);
+}
+.ds-el-icon--full {
+  width: 28px;
+  height: 28px;
+}
+.ds-el-icon--node {
+  width: 20px;
+  height: 20px;
+}
+.ds-el-icon--mini {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-small);
+}
+.ds-el-icon--output {
+  background: var(--label-light-green-bg);
+  color: var(--label-light-green-text);
+}
+.ds-el-icon--input {
+  background: var(--label-purple-bg);
+  color: var(--label-purple-text);
+}
+.ds-el-icon--logic {
+  background: var(--label-logic-bg);
+  color: var(--label-logic-text);
+}
+.ds-el-icon--node-family {
+  background: var(--label-light-blue-bg);
+  color: var(--label-light-blue-text);
+}
+.ds-el-icon--ai {
+  background: var(--label-default-bg);
+  color: var(--icon-brand);
+}
+.ds-el-icon--disabled {
+  background: var(--label-grey-bg);
+  color: var(--icon-disabled);
+}
+.ds-el-icon--plain {
+  background: transparent;
+  color: var(--icon-disabled);
+}
+/* Dark mode swaps each tile's pair: the light tint becomes the glyph, the deep tone the box. */
+:root[data-theme='dark'] .ds-el-icon--output {
+  background: var(--label-light-green-text);
+  color: var(--label-light-green-bg);
+}
+:root[data-theme='dark'] .ds-el-icon--input {
+  background: var(--label-purple-text);
+  color: var(--label-purple-bg);
+}
+:root[data-theme='dark'] .ds-el-icon--logic {
+  background: var(--label-logic-text);
+  color: var(--label-logic-bg);
+}
+:root[data-theme='dark'] .ds-el-icon--node-family {
+  background: var(--label-light-blue-text);
+  color: var(--label-light-blue-bg);
+}
+:root[data-theme='dark'] .ds-el-icon--ai {
+  background: var(--icon-brand);
+  color: var(--label-default-bg);
+}
+:root[data-theme='dark'] .ds-el-icon--disabled {
+  background: var(--icon-disabled);
+  color: var(--label-grey-bg);
+}
+
+.ds-mask-icon {
+  display: block;
+  flex-shrink: 0;
+  background: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+/* ───────────────────────── Element chip (.Chatbot chips) ───────────────────────── */
+.ds-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 256px;
+  height: var(--height-chip);
+  padding: 3px var(--space-3) 3px 3px;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  background: var(--surface-primary);
+  font-size: var(--font-size-caption1);
+  line-height: 16px;
+  font-weight: var(--font-weight-heavy);
+  letter-spacing: 0.15px;
+  color: var(--text-body-primary);
+  user-select: none;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard);
+}
+.ds-chip--draggable {
+  cursor: grab;
+  touch-action: none;
+}
+.ds-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.ds-chip > span:last-child:not(.ds-el-icon) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ds-chip:hover {
+  background: var(--surface-action-tertiary-hover);
+}
+/* Selected = being dragged. "Don't drop" is the same chip faded out over a node that can't take it. */
+.ds-chip--selected,
+.ds-chip--selected:hover,
+.ds-chip--disabled {
+  border-color: var(--border-on-action);
+  background: var(--surface-action-tertiary-pressed);
+}
+.ds-chip--disabled {
+  opacity: 0.3;
+}
+/* Dragged over a node that already has a customer input. */
+.ds-chip--warning,
+.ds-chip--warning:hover {
+  border-color: var(--text-error);
+  background: var(--surface-primary);
+  box-shadow: 0 0 0 1px var(--text-error);
+  opacity: 1;
+}
+
+/* Dropdown menus: white, 40px rows, icon plus label. */
+.ds-menu {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) 0;
+  border-radius: var(--radius-default);
+  background: var(--surface-primary);
+  box-shadow: var(--elevation-dropdown);
+}
+.ds-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--space-4);
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-size: var(--font-size-body2);
+  font-weight: var(--font-weight-regular);
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: var(--text-body-primary);
+  cursor: pointer;
+}
+.ds-menu__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--icon-primary);
+}
+.ds-menu__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ds-menu__item:hover:not(.is-empty),
+.ds-menu__item:focus-visible,
+.ds-menu__item[aria-selected='true'] {
+  outline: none;
+  background: var(--surface-secondary);
+}
+.ds-menu__item.is-empty {
+  color: var(--text-placeholder);
+  cursor: default;
+}
+.ds-chip--mini {
+  height: auto;
+  padding: 0;
+  border-radius: var(--radius-small);
+}
+.ds-chip--mini:hover {
+  background: var(--surface-primary);
+}
+
+/* Small selectable chip used inside panels (Node 1, Text, Buttons …) */
+.ds-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 256px;
+  /* Figma strokes inside the 24px chip, so the 1px border comes out of the 4px / 8px padding. */
+  padding: 3px 7px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-default);
+  background: var(--surface-primary);
+  font-size: var(--font-size-caption1);
+  line-height: 16px;
+  letter-spacing: 0.15px;
+  color: var(--text-body-primary);
+  white-space: nowrap;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+.ds-tag.has-icon {
+  padding-left: 3px;
+}
+button.ds-tag:not(.ds-tag--selected):hover {
+  background: var(--surface-action-tertiary-hover);
+}
+.ds-tag--selected {
+  border-color: var(--surface-action-primary);
+  background: var(--surface-action-primary);
+  color: var(--icon-on-action-primary);
+  cursor: default;
+}
+.ds-tag__lead {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+.ds-tag__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ds-tag__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--icon-primary);
+}
+.ds-tag--selected .ds-tag__icon {
+  color: inherit;
+}
+.ds-tag__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-small);
+  background: var(--label-default-bg);
+  color: var(--icon-brand);
+}
+
+/* ───────────────────────── Panel ───────────────────────── */
+.ds-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-2) var(--space-4) var(--space-4);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-default);
+  background: var(--surface-primary);
+}
+.ds-panel--secondary {
+  background: var(--surface-secondary);
+}
+:root[data-theme='dark'] .ds-panel--secondary {
+  background: var(--surface-primary);
+}
+.ds-panel__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 24px;
+}
+.ds-panel.has-back .ds-panel__header {
+  margin-left: calc(-1 * var(--space-2));
+}
+.ds-panel__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--icon-disabled);
+}
+.ds-panel__title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: var(--font-weight-heavy);
+  color: var(--text-body-secondary);
+}
+.ds-panel__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-2) var(--space-2) 0;
+}
+.ds-panel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-left: calc(-1 * var(--space-2));
+  padding-right: var(--space-2);
+}
+.ds-inset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-default);
+  background: var(--surface-secondary);
+}
+.ds-inset--dense {
+  gap: var(--space-2);
+  padding: var(--space-2);
+}
+:root[data-theme='dark'] .ds-inset--dense {
+  padding: 0;
+  background: transparent;
+}
+
+/* ───────────────────────── Divider ───────────────────────── */
+.ds-divider {
+  border: 0;
+  border-top: 1px solid var(--border-primary);
+  margin: 0;
+  width: 100%;
+}
+.ds-divider--vertical {
+  width: 0;
+  height: 28px;
+  border-top: 0;
+  border-left: 1px solid var(--border-primary);
+}
+
+/* ───────────────────────── Toast ───────────────────────── */
+.ds-toast {
+  position: fixed;
+  left: 50%;
+  bottom: var(--space-6);
+  z-index: 100;
+  transform: translateX(-50%);
+  padding: 10px var(--space-4);
+  border-radius: var(--radius-default);
+  background: var(--neutral-transparent-dark);
+  color: var(--surface-primary);
+  font-size: var(--font-size-body2);
+  box-shadow: var(--elevation-large-modal);
+  animation: ds-toast-in var(--duration-base) var(--ease-standard);
+}
+@keyframes ds-toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+}

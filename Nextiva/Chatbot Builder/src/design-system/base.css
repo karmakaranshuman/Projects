@@ -1,0 +1,88 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body2);
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: var(--text-body-primary);
+  background: var(--surface-secondary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Type ramp — matches Figma text styles */
+.t-overline {
+  font-size: var(--font-size-overline);
+  line-height: 14px;
+  letter-spacing: 0.3px;
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  color: var(--text-body-secondary);
+}
+.t-overline b,
+.t-overline--heavy {
+  font-weight: var(--font-weight-heavy);
+}
+.t-overline b {
+  color: var(--text-body-primary);
+}
+.t-caption {
+  font-size: var(--font-size-caption1);
+  line-height: 16px;
+  letter-spacing: 0.15px;
+}
+.t-caption-heavy {
+  font-size: var(--font-size-caption1);
+  line-height: 16px;
+  letter-spacing: 0.15px;
+  font-weight: var(--font-weight-heavy);
+}
+.t-body2 {
+  font-size: var(--font-size-body2);
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+.t-body1-heavy {
+  font-size: var(--font-size-body1);
+  line-height: 24px;
+  font-weight: var(--font-weight-heavy);
+}
+.t-secondary {
+  color: var(--text-body-secondary);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

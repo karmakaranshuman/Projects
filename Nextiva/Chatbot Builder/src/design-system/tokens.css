@@ -1,0 +1,208 @@
+/*
+ * Design tokens — mirrored from the Figma variables of the "Chatbot builder" file.
+ * Names follow the Figma variable paths (e.g. text/body-primary → --text-body-primary).
+ */
+:root {
+  /* Text */
+  --text-body-primary: #0b1029;
+  --text-body-secondary: #55596b;
+  --text-placeholder: #a0a2ad;
+  --text-action-primary: #005fec;
+  --text-action-secondary: #0b1029;
+  --text-action-secondary-disabled: #acaeb8;
+  --text-error: #c33000;
+  --text-success: #005a39;
+  --text-warning: #c33000;
+
+  /* Surfaces */
+  --surface-primary: #ffffff;
+  --surface-secondary: #f7f8fa;
+  /* Text inputs, selects and the rich text box. */
+  --surface-field: #ffffff;
+  --surface-canvas: #f7f8fa;
+  --canvas-dot: #d2d8e1;
+  --surface-action-primary: #005fec;
+  --surface-action-primary-hover: #004fc4;
+  --surface-action-primary-disabled: rgba(0, 95, 236, 0.24);
+  --surface-action-secondary-default: #eaebef;
+  --surface-action-secondary-hover: #f0f1f4;
+  --surface-action-ghost-hover: #e2f2ff;
+  --surface-action-ghost-hover-secondary: #f0f1f4;
+  --surface-action-ghost-pressed: rgba(11, 16, 41, 0.08);
+  --surface-action-tertiary-hover: #f5faff;
+  --surface-action-tertiary-pressed: #e2f2ff;
+  --surface-pop-up: rgba(11, 16, 41, 0.88);
+  --surface-grip: #acaeb8;
+  --surface-success: #def5f0;
+  --surface-error: #fce9e6;
+  --surface-chat-header: #7a7d8c;
+
+  /* Borders */
+  --border-primary: #dedfe4;
+  --border-input: #b8bac3;
+  --border-on-action: #005fec;
+  --border-success: #008763;
+  --border-strong: #0b1029;
+  --secondary-grey: #d2d8e1;
+
+  /* Icons */
+  --icon-primary: #7a7d8c;
+  --icon-disabled: #acaeb8;
+  --icon-brand: #005fec;
+  --icon-warning: #c33000;
+  --icon-success: #008763;
+  --icon-success-light: #00a680;
+  --icon-away: #ffa238;
+  --icon-error: #db3545;
+  --icon-on-action-primary: #ffffff;
+  --icon-on-action-secondary: #0b1029;
+
+  /* Labels — paired bg / text per family */
+  --label-default-bg: #e2f2ff;
+  --label-default-text: #005fec;
+  --label-light-blue-bg: #e3f5fc;
+  --label-light-blue-text: #2e568a;
+  --label-light-green-bg: #f8fded;
+  --label-light-green-text: #304a01;
+  --label-purple-bg: #faf3ff;
+  --label-purple-text: #3e0093;
+  --label-teal-bg: #def5f0;
+  --label-teal-text: #005a39;
+  --label-grey-bg: #eaebef;
+  --label-red-bg: #fde8e3;
+  --label-logic-bg: #55596b;
+  --label-logic-text: #ffffff;
+  --brand-whatsapp: #25d366;
+
+  --neutral-transparent-dark: #0b1029e0;
+
+  /* Typography */
+  --font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-heavy: 700;
+
+  --font-size-overline: 10px;
+  --font-size-button-small: 11px;
+  --font-size-caption1: 12px;
+  --font-size-body2: 14px;
+  --font-size-button: 14px;
+  --font-size-body1: 16px;
+
+  /* Radius */
+  --radius-small: 2px;
+  --radius-default: 4px;
+  --radius-medium: 8px;
+  --radius-round: 100px;
+
+  /* Spacing (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+
+  /* Dimensions */
+  --height-sm: 28px;
+  --height-chip: 36px;
+  --height-md: 40px;
+  --header-height: 72px;
+  --panel-width-left: 276px;
+  --panel-width-right: 320px;
+  --node-width: 260px;
+
+  /* Elevation */
+  --elevation-interactions: 0 2px 4px 0 rgba(34, 38, 72, 0.08);
+  --elevation-card: 0 0 8px 0 rgba(34, 38, 72, 0.16);
+  --elevation-node-selected: 0 0 4px 0 rgba(34, 38, 72, 0.16);
+  --elevation-large-modal: 10px 10px 30px 0 rgba(34, 38, 72, 0.24);
+  --elevation-dropdown: 0 4px 4px 0 rgba(34, 38, 72, 0.32);
+  --focus-ring: 0 0 0 3px rgba(0, 95, 236, 0.16);
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/*
+ * Dark mode — values from the dark "Component-specific tokens" frame of the Sedona design system.
+ * Only colour and elevation change; sizes, type and motion are shared.
+ */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Text */
+  --text-body-primary: #f7f8fa;
+  --text-body-secondary: #b8bac3;
+  --text-placeholder: #a0a2ad;
+  --text-action-primary: #49b6ff;
+  --text-action-secondary: #a0a2ad;
+  --text-action-secondary-disabled: #acaeb8;
+  --text-error: #fc464e;
+  --text-success: #2ec3a5;
+  --text-warning: #ffa238;
+
+  /*
+   * Surfaces: panels, nodes and the header share the deepest navy on a slate canvas; wells and
+   * form fields step up to Sedona's surface/primary so they still read against the panels.
+   */
+  --surface-primary: #02040f;
+  --surface-secondary: #171c34;
+  --surface-field: #171c34;
+  --surface-canvas: #30344a;
+  --canvas-dot: #55596b;
+  --surface-action-primary: #49b6ff;
+  --surface-action-primary-hover: #0094ff;
+  --surface-action-primary-disabled: #49b6ff73;
+  --surface-action-secondary-default: #616576;
+  --surface-action-secondary-hover: #616576;
+  --surface-action-ghost-hover: #30344a;
+  --surface-action-ghost-hover-secondary: #30344a;
+  --surface-action-ghost-pressed: #30344a;
+  --surface-action-tertiary-hover: #005fec3d;
+  --surface-action-tertiary-pressed: #005fec3d;
+  --surface-pop-up: #dedfe4;
+  --surface-grip: #7a7d8c;
+  --surface-success: #00876333;
+  /* Figma keeps the light error-ghost pink; a tint keeps red error text readable on it. */
+  --surface-error: #fc464e33;
+  --surface-chat-header: #30344a;
+
+  /* Borders */
+  --border-primary: #616576;
+  --border-input: #616576;
+  --border-on-action: #49b6ff;
+  --border-success: #2ec3a5;
+  --border-strong: #f7f8fa;
+  --secondary-grey: #30344a;
+
+  /* Icons */
+  --icon-primary: #dedfe4;
+  --icon-disabled: #616576;
+  --icon-brand: #49b6ff;
+  --icon-warning: #ffa238;
+  --icon-success: #2ec3a5;
+  --icon-success-light: #00a680;
+  --icon-away: #ffa238;
+  --icon-error: #fc464e;
+  --icon-on-action-primary: #0b1029;
+  --icon-on-action-secondary: #a0a2ad;
+
+  /* Labels */
+  --label-default-bg: #e2f2ff;
+  --label-default-text: #0071ff;
+  --label-grey-bg: #616576;
+  --label-logic-bg: #3c4055;
+  --label-logic-text: #ffffff;
+  /* Connectors, handles and toasts: the light-on-dark counterpart of the near-black neutral. */
+  --neutral-transparent-dark: #b8bac3;
+
+  /* Elevation */
+  --elevation-interactions: 0 2px 4px 0 rgba(0, 0, 0, 0.32);
+  --elevation-card: 0 0 8px 0 rgba(0, 0, 0, 0.48);
+  --elevation-node-selected: 0 0 4px 0 rgba(0, 0, 0, 0.48);
+  --elevation-large-modal: 10px 10px 30px 0 rgba(0, 0, 0, 0.56);
+  --elevation-dropdown: 0 4px 4px 0 rgba(0, 0, 0, 0.56);
+  --focus-ring: 0 0 0 3px rgba(73, 182, 255, 0.32);
+}
